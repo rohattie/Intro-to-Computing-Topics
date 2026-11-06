@@ -1,0 +1,1237 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intro to Computing| Academic Review</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg: #101210;
+    --surface: #191d19;
+    --surface2: #222822;
+    --lime: #c5ff5c;
+    --white: #f1f2e9;
+    --muted: #929b8f;
+    --line: #343c33;
+    --orange: #ff885e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.7;
+}
+
+::selection {
+    background: var(--lime);
+    color: #111;
+}
+
+/* PROGRESS BAR */
+
+.progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: var(--lime);
+    z-index: 2000;
+}
+
+/* NAVIGATION */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(16,18,16,.91);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-family: 'Space Grotesk';
+    font-weight: 700;
+    font-size: 19px;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--lime);
+}
+
+.nav-links {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 12px;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    border-color: var(--lime);
+    color: var(--lime);
+}
+
+/* HERO */
+
+.hero {
+    min-height: 650px;
+    padding: 100px 8% 85px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+}
+
+.hero::before {
+    content: "01";
+    position: absolute;
+    right: 5%;
+    top: 70px;
+    font-family: 'Space Grotesk';
+    font-size: clamp(180px, 35vw, 470px);
+    font-weight: 700;
+    color: rgba(197,255,92,.035);
+    line-height: 1;
+}
+
+.eyebrow {
+    color: var(--lime);
+    font-family: 'DM Mono';
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: 'Space Grotesk';
+    font-size: clamp(48px, 8vw, 105px);
+    line-height: .99;
+    letter-spacing: -6px;
+    max-width: 950px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 span {
+    color: var(--lime);
+}
+
+.hero-description {
+    color: var(--muted);
+    max-width: 550px;
+    margin-top: 30px;
+    font-size: 16px;
+}
+
+.hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-top: 65px;
+    border-top: 1px solid var(--line);
+    padding-top: 22px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.hero-bottom strong {
+    color: var(--white);
+}
+
+/* INTRODUCTION */
+
+.intro {
+    padding: 90px 8%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    border-bottom: 1px solid var(--line);
+}
+
+.section-label {
+    color: var(--lime);
+    font-family: 'DM Mono';
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.intro h2 {
+    font-family: 'Space Grotesk';
+    font-size: 45px;
+    line-height: 1.1;
+}
+
+.intro p {
+    color: var(--muted);
+    margin-bottom: 15px;
+}
+
+.intro-stat {
+    border-left: 2px solid var(--lime);
+    padding-left: 20px;
+    margin-top: 25px;
+}
+
+.intro-stat strong {
+    color: var(--lime);
+    font-size: 30px;
+    font-family: 'Space Grotesk';
+}
+
+/* MODULES */
+
+.module {
+    padding: 90px 8%;
+    border-bottom: 1px solid var(--line);
+    scroll-margin-top: 70px;
+}
+
+.module-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 25px;
+    margin-bottom: 65px;
+}
+
+.module-number {
+    font-family: 'Space Grotesk';
+    font-size: clamp(90px, 15vw, 190px);
+    line-height: .8;
+    color: var(--lime);
+    letter-spacing: -12px;
+    opacity: .95;
+}
+
+.module-heading h2 {
+    font-family: 'Space Grotesk';
+    font-size: clamp(32px, 5vw, 62px);
+    line-height: 1.08;
+    letter-spacing: -2px;
+    max-width: 750px;
+}
+
+.module-heading .tag {
+    color: var(--lime);
+    font-family: 'DM Mono';
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-family: 'Space Grotesk';
+    font-size: 24px;
+    margin: 42px 0 16px;
+    letter-spacing: -.5px;
+}
+
+p {
+    color: #b5bdb1;
+    margin-bottom: 16px;
+}
+
+ul, ol {
+    padding-left: 25px;
+    margin-bottom: 20px;
+    color: #b5bdb1;
+}
+
+li {
+    padding: 5px 0;
+}
+
+b, strong {
+    color: var(--white);
+}
+
+/* FEATURE GRID */
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 12px;
+    margin: 30px 0;
+}
+
+.feature {
+    background: var(--surface);
+    padding: 25px;
+    border: 1px solid var(--line);
+    min-height: 170px;
+    transition: .3s;
+}
+
+.feature:hover {
+    border-color: var(--lime);
+    transform: translateY(-5px);
+}
+
+.feature .icon {
+    font-size: 25px;
+    margin-bottom: 17px;
+}
+
+.feature h4 {
+    font-family: 'Space Grotesk';
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.feature p {
+    font-size: 13px;
+    margin: 0;
+}
+
+/* TABLES */
+
+.table-wrap {
+    overflow-x: auto;
+    margin: 25px 0 35px;
+    border: 1px solid var(--line);
+}
+
+table {
+    width: 100%;
+    min-width: 550px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+thead {
+    background: var(--lime);
+    color: #111;
+}
+
+th {
+    padding: 16px;
+    font-size: 12px;
+    font-family: 'DM Mono';
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+td {
+    padding: 15px 16px;
+    border-bottom: 1px solid var(--line);
+    color: #bbc3b7;
+    font-size: 14px;
+}
+
+td:first-child {
+    color: var(--white);
+    font-weight: 700;
+}
+
+tbody tr {
+    background: var(--surface);
+    transition: .2s;
+}
+
+tbody tr:hover {
+    background: var(--surface2);
+}
+
+/* HIGHLIGHT */
+
+.highlight {
+    background: #202a1b;
+    border-left: 4px solid var(--lime);
+    padding: 23px;
+    margin: 30px 0;
+}
+
+.highlight p {
+    margin: 0;
+    color: #d2e6bc;
+}
+
+/* CODE */
+
+.code-box {
+    margin: 25px 0;
+}
+
+.code-title {
+    background: #282e27;
+    color: var(--lime);
+    padding: 10px 16px;
+    font-family: 'DM Mono';
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+pre {
+    background: #090c09;
+    padding: 22px;
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    color: #c5ff9b;
+    font-family: 'DM Mono';
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+code {
+    color: var(--lime);
+    font-family: 'DM Mono';
+}
+
+/* TIMELINE */
+
+.timeline {
+    border-left: 2px solid var(--line);
+    margin: 30px 0 30px 10px;
+    padding-left: 30px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 28px;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--lime);
+    left: -37px;
+    top: 8px;
+}
+
+.timeline-item h4 {
+    color: var(--lime);
+    font-family: 'Space Grotesk';
+    font-size: 18px;
+}
+
+/* BACK BUTTON */
+
+.back {
+    display: inline-block;
+    margin-top: 40px;
+    color: var(--lime);
+    font-family: 'DM Mono';
+    font-size: 11px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--lime);
+    padding-bottom: 5px;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 75px 8% 35px;
+    background: #080a08;
+}
+
+footer h2 {
+    font-family: 'Space Grotesk';
+    font-size: clamp(35px, 6vw, 70px);
+    line-height: 1;
+}
+
+footer h2 span {
+    color: var(--lime);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--line);
+    padding-top: 25px;
+    margin-top: 60px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 800px) {
+    nav {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .nav-links {
+        gap: 3px;
+    }
+
+    .hero {
+        min-height: 570px;
+        padding: 80px 6%;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .intro {
+        grid-template-columns: 1fr;
+        padding: 65px 6%;
+        gap: 20px;
+    }
+
+    .module {
+        padding: 65px 6%;
+    }
+
+    .module-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 40px;
+    }
+
+    .module-number {
+        font-size: 100px;
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width: 480px) {
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 10px;
+        padding: 6px 8px;
+    }
+}
+</style>
+</head>
+
+<body id="top">
+
+<div class="progress" id="progress"></div>
+
+<!-- NAVIGATION -->
+<nav>
+    <div class="logo">Intro to<span>.</span>Computing</div>
+
+    <div class="nav-links">
+        <a href="#module1">01 Foundations</a>
+        <a href="#module2">02 Information</a>
+        <a href="#module3">03 Database</a>
+        <a href="#module4">04 Hardware</a>
+        <a href="#module5">05 Networks</a>
+        <a href="#module6">06 Productivity</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+    <div class="eyebrow">ACADEMIC KNOWLEDGE COLLECTION / 2026</div>
+
+    <h1>
+        THE WORLD OF<br>
+        <span>COMPUTING</span><br>
+        & INFORMATION.
+    </h1>
+
+    <p class="hero-description">
+        A comprehensive academic reference exploring computer
+        fundamentals, information systems, databases, hardware,
+        networking infrastructure, and productivity technologies.
+    </p>
+
+    <div class="hero-bottom">
+        <div>
+            <strong>SEMESTER REVIEW</strong><br>
+            Introduction to Computing
+        </div>
+        <div>
+            <strong>06 MODULES</strong><br>
+            Complete Learning Reference
+        </div>
+        <div>
+            <strong>STUDENT EDITION</strong><br>
+            Final Academic Project
+        </div>
+    </div>
+</header>
+
+<!-- INTRO -->
+<section class="intro">
+    <div>
+        <div class="section-label">/ ABOUT THIS RESOURCE</div>
+        <h2>Understand the systems behind our digital world.</h2>
+    </div>
+
+    <div>
+        <p>
+            Computing is more than using a computer. It involves
+            understanding how information is collected, processed,
+            stored, communicated, and transformed into meaningful results.
+        </p>
+
+        <p>
+            This learning resource organizes important concepts into
+            six comprehensive modules, complete with definitions,
+            comparisons, examples, and technical references.
+        </p>
+
+        <div class="intro-stat">
+            <strong>06</strong>
+            <p>Structured academic modules</p>
+        </div>
+    </div>
+</section>
+
+<!-- MODULE 1 -->
+<section class="module" id="module1">
+
+<div class="module-heading">
+    <div>
+        <div class="tag">MODULE 01 / COMPUTER FUNDAMENTALS</div>
+        <h2>Foundations & Architecture of Computing</h2>
+    </div>
+    <div class="module-number">01</div>
+</div>
+
+<h3>1.1 Data, Information, and Knowledge</h3>
+<p>These concepts represent different stages of understanding and processing information.</p>
+
+<div class="feature-grid">
+    <div class="feature">
+        <div class="icon">◈</div>
+        <h4>Data</h4>
+        <p>Raw, unorganized facts and figures without context.</p>
+        <p><b>Example:</b> 40, 39, 42</p>
+    </div>
+
+    <div class="feature">
+        <div class="icon">▤</div>
+        <h4>Information</h4>
+        <p>Processed data that becomes meaningful and useful.</p>
+        <p><b>Example:</b> Average temperature is 40°C.</p>
+    </div>
+
+    <div class="feature">
+        <div class="icon">✳</div>
+        <h4>Knowledge</h4>
+        <p>Understanding information and applying it to make decisions.</p>
+        <p><b>Example:</b> Activate cooling because the room is overheating.</p>
+    </div>
+</div>
+
+<h3>1.2 Characteristics of Computers</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Characteristic</th><th>Academic Description</th></tr></thead>
+<tbody>
+<tr><td>Speed</td><td>Performs calculations and operations at very high speeds.</td></tr>
+<tr><td>Accuracy</td><td>Produces accurate results when supplied with correct data and instructions.</td></tr>
+<tr><td>Diligence</td><td>Performs repetitive tasks without fatigue.</td></tr>
+<tr><td>Versatility</td><td>Performs different types of tasks and operations.</td></tr>
+<tr><td>Storage Capacity</td><td>Stores large quantities of data and information.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>1.3 The Four Cognitive Categories of the Human Mind</h3>
+
+<div class="timeline">
+    <div class="timeline-item">
+        <h4>01 — Data Processing / Sensing</h4>
+        <p>Receives information through environmental senses.</p>
+    </div>
+    <div class="timeline-item">
+        <h4>02 — Memory / Retention</h4>
+        <p>Stores experiences, facts, and information.</p>
+    </div>
+    <div class="timeline-item">
+        <h4>03 — Reasoning / Logic</h4>
+        <p>Analyzes information and solves problems.</p>
+    </div>
+    <div class="timeline-item">
+        <h4>04 — Creativity / Intuition</h4>
+        <p>Generates new ideas and original concepts.</p>
+    </div>
+</div>
+
+<h3>1.4 History and Classification of Computers</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Generation</th><th>Main Technology</th></tr></thead>
+<tbody>
+<tr><td>First Generation</td><td>Vacuum Tubes</td></tr>
+<tr><td>Second Generation</td><td>Transistors</td></tr>
+<tr><td>Third Generation</td><td>Integrated Circuits (ICs)</td></tr>
+<tr><td>Fourth Generation</td><td>Microprocessors</td></tr>
+<tr><td>Fifth Generation</td><td>Artificial Intelligence and advanced computing</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Computer Classifications</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Type</th><th>Purpose</th></tr></thead>
+<tbody>
+<tr><td>Supercomputer</td><td>Complex scientific calculations and simulations.</td></tr>
+<tr><td>Mainframe</td><td>Large-scale data processing for banks and enterprises.</td></tr>
+<tr><td>Minicomputer</td><td>Historically used as a mid-range multi-user computer.</td></tr>
+<tr><td>Microcomputer</td><td>Personal computers, laptops, and mobile devices.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>1.5 Paradigms and Forms of Computing</h3>
+
+<ul>
+<li><b>Parallel Computing:</b> Multiple processors execute different parts of a problem simultaneously.</li>
+<li><b>Distributed Computing:</b> Independent computers communicate over a network to accomplish a common task.</li>
+<li><b>Personal Computing:</b> Computing performed using an individual computer.</li>
+<li><b>Client-Server Computing:</b> Clients request services from a central server.</li>
+<li><b>Peer-to-Peer Computing:</b> Computers communicate and share resources directly.</li>
+<li><b>Cloud Computing:</b> Accessing computing services and resources through the Internet.</li>
+</ul>
+
+<div class="highlight">
+<p><b>KEY CONCEPT:</b> Parallel computing focuses on simultaneous processing, while distributed computing focuses on cooperation between connected computers.</p>
+</div>
+
+<a href="#top" class="back">↑ BACK TO THE BEGINNING</a>
+</section>
+
+<!-- MODULE 2 -->
+<section class="module" id="module2">
+
+<div class="module-heading">
+    <div>
+        <div class="tag">MODULE 02 / INFORMATION SYSTEMS</div>
+        <h2>Information Systems & Data Modelling</h2>
+    </div>
+    <div class="module-number">02</div>
+</div>
+
+<h3>2.1 What is an Information System?</h3>
+
+<p>
+An Information System (IS) is an organized combination of hardware,
+software, data, people, and procedures that collects, processes,
+stores, and distributes information to support decision-making.
+</p>
+
+<h3>2.2 The Five Core Components of an Information System</h3>
+
+<div class="feature-grid">
+    <div class="feature">
+        <div class="icon">▣</div>
+        <h4>Hardware</h4>
+        <p>Physical equipment such as computers, keyboards, monitors, and servers.</p>
+    </div>
+    <div class="feature">
+        <div class="icon">⌘</div>
+        <h4>Software</h4>
+        <p>Programs and applications that control computer operations.</p>
+    </div>
+    <div class="feature">
+        <div class="icon">▤</div>
+        <h4>Data</h4>
+        <p>Raw facts and records processed into meaningful information.</p>
+    </div>
+    <div class="feature">
+        <div class="icon">≡</div>
+        <h4>Procedures</h4>
+        <p>Rules and instructions for using and operating a system.</p>
+    </div>
+    <div class="feature">
+        <div class="icon">◎</div>
+        <h4>People</h4>
+        <p>Users, operators, programmers, and administrators.</p>
+    </div>
+</div>
+
+<h3>2.3 Foundations of Databases</h3>
+
+<p>A database is an organized collection of related data that allows users to store, retrieve, manage, and update information efficiently.</p>
+
+<h3>Entities and Relationships</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Concept</th><th>Meaning</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>Strong Entity</td><td>Can exist independently in a database.</td><td>Student</td></tr>
+<tr><td>Weak Entity</td><td>Depends on another entity for identification or existence.</td><td>Dependent</td></tr>
+<tr><td>Attributes</td><td>Properties describing an entity.</td><td>Student ID, Name, Email</td></tr>
+<tr><td>Relationships</td><td>Associations between entities.</td><td>Student enrolls in Course</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Types of Relationships</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Relationship</th><th>Meaning</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>One-to-One (1:1)</td><td>One record relates to one other record.</td><td>Person and Passport</td></tr>
+<tr><td>One-to-Many (1:M)</td><td>One record relates to multiple records.</td><td>Teacher and Students</td></tr>
+<tr><td>Many-to-Many (M:N)</td><td>Multiple records relate to multiple records.</td><td>Students and Courses</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="highlight">
+<p><b>KEY CONCEPT:</b> A many-to-many relationship is normally resolved using an associative or junction table.</p>
+</div>
+
+<a href="#top" class="back">↑ BACK TO THE BEGINNING</a>
+</section>
+
+<!-- MODULE 3 -->
+<section class="module" id="module3">
+
+<div class="module-heading">
+    <div>
+        <div class="tag">MODULE 03 / DATABASE TECHNOLOGY</div>
+        <h2>Database Management & MySQL Commands</h2>
+    </div>
+    <div class="module-number">03</div>
+</div>
+
+<h3>3.1 Database Management Systems</h3>
+
+<p>
+A Database Management System (DBMS) is software that allows users
+to create, organize, retrieve, update, and manage databases.
+It helps maintain data security, integrity, and consistency.
+</p>
+
+<h3>3.2 SQL Component Languages</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Language</th><th>Full Meaning</th><th>Commands</th><th>Purpose</th></tr></thead>
+<tbody>
+<tr><td>DDL</td><td>Data Definition Language</td><td>CREATE, ALTER, DROP, TRUNCATE</td><td>Defines database structures.</td></tr>
+<tr><td>DML</td><td>Data Manipulation Language</td><td>INSERT, UPDATE, DELETE</td><td>Modifies stored data.</td></tr>
+<tr><td>DQL</td><td>Data Query Language</td><td>SELECT</td><td>Retrieves information.</td></tr>
+<tr><td>DCL</td><td>Data Control Language</td><td>GRANT, REVOKE</td><td>Controls database permissions.</td></tr>
+<tr><td>TCL</td><td>Transaction Control Language</td><td>COMMIT, ROLLBACK</td><td>Manages transactions.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>3.3 Essential MySQL Code Snippets</h3>
+
+<div class="code-box">
+<div class="code-title">01 / CREATE TABLE WITH KEYS</div>
+<pre>CREATE TABLE Students (
+    StudentID INT PRIMARY KEY,
+    FirstName VARCHAR(50) NOT NULL,
+    GPA DECIMAL(3,2),
+    MajorID INT,
+    FOREIGN KEY (MajorID)
+    REFERENCES Majors(MajorID)
+);</pre>
+</div>
+
+<div class="code-box">
+<div class="code-title">02 / INSERT RECORDS</div>
+<pre>INSERT INTO Students
+(StudentID, FirstName, GPA, MajorID)
+VALUES (101, 'Alice', 3.85, 2);</pre>
+</div>
+
+<div class="code-box">
+<div class="code-title">03 / QUERY WITH CONDITIONS</div>
+<pre>SELECT FirstName, GPA
+FROM Students
+WHERE GPA >= 3.5
+ORDER BY GPA DESC;</pre>
+</div>
+
+<div class="code-box">
+<div class="code-title">04 / AGGREGATION AND GROUPING</div>
+<pre>SELECT MajorID, AVG(GPA) AS AverageGPA
+FROM Students
+GROUP BY MajorID
+HAVING COUNT(*) > 5;</pre>
+</div>
+
+<h3>3.4 Common Database Operations</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Operation</th><th>MySQL Command</th></tr></thead>
+<tbody>
+<tr><td>Create Database</td><td><code>CREATE DATABASE School;</code></td></tr>
+<tr><td>Show Databases</td><td><code>SHOW DATABASES;</code></td></tr>
+<tr><td>Select Database</td><td><code>USE School;</code></td></tr>
+<tr><td>Show Tables</td><td><code>SHOW TABLES;</code></td></tr>
+<tr><td>Delete Table</td><td><code>DROP TABLE Students;</code></td></tr>
+<tr><td>Update Record</td><td><code>UPDATE Students SET GPA=3.9 WHERE StudentID=101;</code></td></tr>
+</tbody>
+</table>
+</div>
+
+<a href="#top" class="back">↑ BACK TO THE BEGINNING</a>
+</section>
+
+<!-- MODULE 4 -->
+<section class="module" id="module4">
+
+<div class="module-heading">
+    <div>
+        <div class="tag">MODULE 04 / COMPUTER HARDWARE</div>
+        <h2>Hardware, Memory & System Storage</h2>
+    </div>
+    <div class="module-number">04</div>
+</div>
+
+<h3>4.1 Von Neumann Architecture</h3>
+
+<p>
+The Von Neumann Architecture is a computer design model that uses
+a shared memory to store instructions and data. Its major components
+include the CPU, memory unit, and input/output system.
+</p>
+
+<div class="feature-grid">
+    <div class="feature">
+        <div class="icon">⌘</div>
+        <h4>Control Unit (CU)</h4>
+        <p>Directs and coordinates computer operations and instruction execution.</p>
+    </div>
+    <div class="feature">
+        <div class="icon">∑</div>
+        <h4>Arithmetic Logic Unit</h4>
+        <p>Performs mathematical calculations and logical operations.</p>
+    </div>
+    <div class="feature">
+        <div class="icon">⚡</div>
+        <h4>Registers</h4>
+        <p>Small, high-speed storage locations inside the CPU.</p>
+    </div>
+</div>
+
+<h3>4.2 Fetch-Decode-Execute Cycle</h3>
+
+<div class="timeline">
+    <div class="timeline-item">
+        <h4>01 — Fetch</h4>
+        <p>The CPU retrieves an instruction from memory.</p>
+    </div>
+    <div class="timeline-item">
+        <h4>02 — Decode</h4>
+        <p>The Control Unit interprets the instruction.</p>
+    </div>
+    <div class="timeline-item">
+        <h4>03 — Execute</h4>
+        <p>The CPU performs the required operation.</p>
+    </div>
+</div>
+
+<h3>4.3 Hierarchical Memory System</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Memory Type</th><th>Volatility</th><th>Characteristics</th></tr></thead>
+<tbody>
+<tr><td>Registers</td><td>Volatile</td><td>Very small and extremely fast CPU storage.</td></tr>
+<tr><td>Cache Memory</td><td>Volatile</td><td>Stores frequently accessed data and instructions.</td></tr>
+<tr><td>RAM</td><td>Volatile</td><td>Temporarily stores running programs and data.</td></tr>
+<tr><td>ROM</td><td>Non-volatile</td><td>Stores persistent firmware instructions.</td></tr>
+<tr><td>HDD</td><td>Non-volatile</td><td>Uses magnetic storage technology.</td></tr>
+<tr><td>SSD</td><td>Non-volatile</td><td>Uses flash memory for data storage.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>4.4 Primary vs. Secondary Storage</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Primary Storage</th><th>Secondary Storage</th></tr></thead>
+<tbody>
+<tr><td>Directly accessible by the CPU.</td><td>Used for long-term storage.</td></tr>
+<tr><td>Generally faster.</td><td>Generally slower than primary memory.</td></tr>
+<tr><td>RAM, ROM, Cache.</td><td>HDD, SSD, USB Drive.</td></tr>
+</tbody>
+</table>
+</div>
+
+<a href="#top" class="back">↑ BACK TO THE BEGINNING</a>
+</section>
+
+<!-- MODULE 5 -->
+<section class="module" id="module5">
+
+<div class="module-heading">
+    <div>
+        <div class="tag">MODULE 05 / NETWORK INFRASTRUCTURE</div>
+        <h2>Data Communications & Networking</h2>
+    </div>
+    <div class="module-number">05</div>
+</div>
+
+<h3>5.1 Network Topologies</h3>
+
+<div class="feature-grid">
+    <div class="feature">
+        <div class="icon">✳</div>
+        <h4>Star Topology</h4>
+        <p>All devices connect to a central hub or switch.</p>
+    </div>
+    <div class="feature">
+        <div class="icon">◇</div>
+        <h4>Mesh Topology</h4>
+        <p>Devices have multiple communication paths.</p>
+    </div>
+    <div class="feature">
+        <div class="icon">━</div>
+        <h4>Bus Topology</h4>
+        <p>All devices share one main communication cable.</p>
+    </div>
+</div>
+
+<h3>5.2 Network Classification</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Network</th><th>Full Name</th><th>Coverage</th></tr></thead>
+<tbody>
+<tr><td>PAN</td><td>Personal Area Network</td><td>Personal space around an individual.</td></tr>
+<tr><td>LAN</td><td>Local Area Network</td><td>Home, office, or building.</td></tr>
+<tr><td>MAN</td><td>Metropolitan Area Network</td><td>City or metropolitan area.</td></tr>
+<tr><td>WAN</td><td>Wide Area Network</td><td>Large geographical areas.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>5.3 The OSI Reference Model</h3>
+
+<p>The Open Systems Interconnection model consists of seven layers that explain how data travels through a network.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Layer</th><th>Name</th><th>Function</th><th>Examples</th></tr></thead>
+<tbody>
+<tr><td>7</td><td>Application</td><td>Provides network services to applications.</td><td>HTTP, FTP, SMTP</td></tr>
+<tr><td>6</td><td>Presentation</td><td>Handles data formatting, encryption, and compression.</td><td>JPEG, Encryption</td></tr>
+<tr><td>5</td><td>Session</td><td>Establishes and manages communication sessions.</td><td>Session Management</td></tr>
+<tr><td>4</td><td>Transport</td><td>Provides end-to-end communication.</td><td>TCP, UDP</td></tr>
+<tr><td>3</td><td>Network</td><td>Handles logical addressing and routing.</td><td>IP, Routers</td></tr>
+<tr><td>2</td><td>Data Link</td><td>Handles frames and physical addressing.</td><td>MAC, Switches</td></tr>
+<tr><td>1</td><td>Physical</td><td>Transmits raw bits through physical media.</td><td>Cables, Hubs</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>5.4 TCP/IP Model</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Layer</th><th>Function</th></tr></thead>
+<tbody>
+<tr><td>Application</td><td>Provides application and network services.</td></tr>
+<tr><td>Transport</td><td>Manages communication between devices.</td></tr>
+<tr><td>Internet</td><td>Handles IP addressing and routing.</td></tr>
+<tr><td>Network Access</td><td>Handles physical transmission and network access.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>5.5 OSI vs. TCP/IP</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>OSI Model</th><th>TCP/IP Model</th></tr></thead>
+<tbody>
+<tr><td>Seven layers.</td><td>Four layers.</td></tr>
+<tr><td>Conceptual reference model.</td><td>Practical networking protocol model.</td></tr>
+<tr><td>Developed by ISO.</td><td>Developed through DARPA research.</td></tr>
+</tbody>
+</table>
+</div>
+
+<a href="#top" class="back">↑ BACK TO THE BEGINNING</a>
+</section>
+
+<!-- MODULE 6 -->
+<section class="module" id="module6">
+
+<div class="module-heading">
+    <div>
+        <div class="tag">MODULE 06 / DIGITAL PRODUCTIVITY</div>
+        <h2>Productivity Software, Excel & Shortcuts</h2>
+    </div>
+    <div class="module-number">06</div>
+</div>
+
+<h3>6.1 Productivity Software</h3>
+
+<p>Productivity software helps users create documents, organize information, perform calculations, prepare presentations, and communicate efficiently.</p>
+
+<div class="feature-grid">
+    <div class="feature">
+        <div class="icon">▤</div>
+        <h4>Word Processor</h4>
+        <p>Creates, edits, and formats documents.</p>
+        <p><b>Example:</b> Microsoft Word</p>
+    </div>
+    <div class="feature">
+        <div class="icon">▦</div>
+        <h4>Spreadsheet</h4>
+        <p>Organizes data, calculations, and charts.</p>
+        <p><b>Example:</b> Microsoft Excel</p>
+    </div>
+    <div class="feature">
+        <div class="icon">▧</div>
+        <h4>Presentation</h4>
+        <p>Creates visual presentations using slides.</p>
+        <p><b>Example:</b> PowerPoint</p>
+    </div>
+    <div class="feature">
+        <div class="icon">▣</div>
+        <h4>Database Software</h4>
+        <p>Stores and manages organized information.</p>
+        <p><b>Example:</b> Microsoft Access</p>
+    </div>
+</div>
+
+<h3>6.2 Microsoft Excel Basics</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Term</th><th>Definition</th></tr></thead>
+<tbody>
+<tr><td>Workbook</td><td>An Excel file containing one or more worksheets.</td></tr>
+<tr><td>Worksheet</td><td>A spreadsheet page containing rows and columns.</td></tr>
+<tr><td>Cell</td><td>The intersection of a row and a column.</td></tr>
+<tr><td>Cell Reference</td><td>The address of a cell, such as A1 or B5.</td></tr>
+<tr><td>Formula</td><td>An expression used to calculate values.</td></tr>
+<tr><td>Function</td><td>A predefined formula that performs a calculation.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>6.3 Common Excel Formulas</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Formula</th><th>Purpose</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>SUM</td><td>Adds values.</td><td>=SUM(A1:A10)</td></tr>
+<tr><td>AVERAGE</td><td>Calculates the average.</td><td>=AVERAGE(A1:A10)</td></tr>
+<tr><td>MAX</td><td>Finds the highest value.</td><td>=MAX(A1:A10)</td></tr>
+<tr><td>MIN</td><td>Finds the lowest value.</td><td>=MIN(A1:A10)</td></tr>
+<tr><td>COUNT</td><td>Counts numeric cells.</td><td>=COUNT(A1:A10)</td></tr>
+<tr><td>IF</td><td>Checks a condition.</td><td>=IF(A1>=75,"PASS","FAIL")</td></tr>
+<tr><td>COUNTA</td><td>Counts non-empty cells.</td><td>=COUNTA(A1:A10)</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>6.4 Common Keyboard Shortcuts</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Shortcut</th><th>Function</th></tr></thead>
+<tbody>
+<tr><td>Ctrl + C</td><td>Copy</td></tr>
+<tr><td>Ctrl + V</td><td>Paste</td></tr>
+<tr><td>Ctrl + X</td><td>Cut</td></tr>
+<tr><td>Ctrl + Z</td><td>Undo</td></tr>
+<tr><td>Ctrl + Y</td><td>Redo</td></tr>
+<tr><td>Ctrl + S</td><td>Save</td></tr>
+<tr><td>Ctrl + A</td><td>Select All</td></tr>
+<tr><td>Ctrl + P</td><td>Print</td></tr>
+<tr><td>Ctrl + F</td><td>Find</td></tr>
+<tr><td>Ctrl + B</td><td>Bold</td></tr>
+<tr><td>Ctrl + I</td><td>Italic</td></tr>
+<tr><td>Ctrl + U</td><td>Underline</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="highlight">
+<p><b>STUDY TIP:</b> Practice Excel formulas and keyboard shortcuts regularly to improve your productivity and computer skills.</p>
+</div>
+
+<a href="#top" class="back">↑ BACK TO THE BEGINNING</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="section-label">/ END OF ACADEMIC REVIEW</div>
+    <h2>THINK.<br>PROCESS.<br><span>INNOVATE.</span></h2>
+
+    <p style="margin-top:25px;">
+        Introduction to Computing & Information Systems
+    </p>
+
+    <div class="footer-bottom">
+        <span>Created: Luzano Rochelle, Lampa Hannah and Gomagadong Sittie</span>
+        <span>© 2026 Academic Learning Resource</span>
+        <a href="#top" style="color:var(--lime);text-decoration:none;">BACK TO TOP ↑</a>
+    </div>
+</footer>
+
+<script>
+/* SCROLL PROGRESS INDICATOR */
+window.addEventListener("scroll", function() {
+    const scrollTop = document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight -
+                         document.documentElement.clientHeight;
+
+    const progress = (scrollTop / scrollHeight) * 100;
+
+    document.getElementById("progress").style.width = progress + "%";
+});
+</script>
+
+</body>
+</html>
